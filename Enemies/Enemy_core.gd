@@ -12,7 +12,7 @@ export(int) var screen_shake = 120
 
 onready var current_color = modulate
 
-var blood_particles = preload("res://Blood_particles.tscn")
+var blood_particles = preload("res://Blood/Blood_particles.tscn")
 
 func _process(_delta):
 	if hp <= 0:

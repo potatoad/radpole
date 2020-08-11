@@ -15,8 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Wave Shooter"
-run/main_scene="res://Arena.tscn"
+config/name="Radpole"
+run/main_scene="res://Arena/Arena.tscn"
 config/icon="res://icon.png"
 
 [autoload]

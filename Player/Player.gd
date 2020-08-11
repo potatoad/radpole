@@ -4,7 +4,7 @@ extends Sprite
 var speed = 150
 var velocity = Vector2()
 
-var bullet = preload("res://Bullet.tscn")
+var bullet = preload("res://Bullets/Bullet.tscn")
 
 var can_shoot = true
 var is_dead = false
