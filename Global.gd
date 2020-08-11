@@ -25,6 +25,7 @@ func save_game():
 	save_game.open_encrypted_with_pass("user://savegame.save", File.WRITE, "enc")
 	save_game.store_line(to_json(save()))
 	save_game.close()
+	print("File saved to disk")
 	
 func load_game():
 	var save_game = File.new()
@@ -33,7 +34,7 @@ func load_game():
 		return
 	
 	save_game.open_encrypted_with_pass("user://savegame.save", File.READ, "enc")
-	print("File saved to disk")
+	print("File read from disk")
 	
 	var current_line = parse_json(save_game.get_line())
 	
