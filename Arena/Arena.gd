@@ -5,6 +5,7 @@ export(Array, PackedScene) var power_ups
 
 func _ready():
 	Global.node_creation_parent = self
+	randomize()
 	
 func _exit_tree():
 	Global.node_creation_parent = null
