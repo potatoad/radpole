@@ -1,4 +1,4 @@
-extends AnimatedSprite
+extends KinematicBody2D
 
 
 var speed = 150
@@ -17,18 +17,30 @@ var default_reload_speed = reload_speed
 
 var power_up_reset = []
 
+func get_input():
+	rotation = get_global_mouse_position().angle_to_point(position)
+	velocity = Vector2()
+	if Input.is_action_pressed("click"):
+		velocity = Vector2(speed, 0).rotated(rotation)
+#	if Input.is_action_pressed('move_down'):
+#		velocity = Vector2(-speed, 0).rotated(rotation)
+
 func _ready():
 	Global.player = self
 	Global.points = 0
 	
 func _exit_tree():
 	Global.player = null
+	
+func _physics_process(delta):
+	get_input()
+	velocity = move_and_slide(velocity * delta)
 
 func _process(delta):
-	velocity.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
-	velocity.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
-	
-	velocity = velocity.normalized()
+#	velocity.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
+#	velocity.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
+#
+#	velocity = velocity.normalized()
 
 	global_position.x = clamp(global_position.x, 24, 616)
 	global_position.y = clamp(global_position.y, 24, 336)

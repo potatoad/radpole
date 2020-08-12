@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player/Tadpole/tadpole_swim_animation.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Player/Tadpole/Tadpole.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 11.0895
+height = 11.3961
+
+[node name="Tadpole" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+rotation = 1.5708
+frames = ExtResource( 1 )
+animation = "tadpole_swim"
+frame = 3
+playing = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Power_up_cool_down" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
