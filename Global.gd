@@ -4,6 +4,8 @@ var node_creation_parent = null
 var player = null
 var camera = null
 
+var projectResolution = Vector2(ProjectSettings.get_setting("display/window/size/width"),ProjectSettings.get_setting("display/window/size/height"))
+
 var points = 0
 var highscore = 0
 

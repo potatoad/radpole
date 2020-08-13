@@ -6,22 +6,26 @@ export(Array, PackedScene) var power_ups
 func _ready():
 	Global.node_creation_parent = self
 	randomize()
+
+func _process(_delta):
+	if Input.is_action_just_pressed("Esc"):
+		get_tree().change_scene("res://UI/Title_screen.tscn")
 	
 func _exit_tree():
 	Global.node_creation_parent = null
 
 
-func _on_Enemy_spawn_timer_timeout():
-	var enemy_position = Vector2(rand_range(-160, 670), rand_range(-90, 390))
-	
-	while enemy_position.x < 640 and enemy_position.x > -80 and enemy_position.y < 360 and enemy_position.y > -45:
-		enemy_position = Vector2(rand_range(-160, 670), rand_range(-90, 390))
-
-	var enemy_number = round(rand_range(0, enemies.size() - 1))
-
-	Global.instance_node(enemies[enemy_number], enemy_position, self)
-	
-	$Enemy_spawn_timer.wait_time *= 0.95
+#func _on_Enemy_spawn_timer_timeout():
+#	var enemy_position = Vector2(rand_range(-160, 670), rand_range(-90, 390))
+#
+#	while enemy_position.x < 640 and enemy_position.x > -80 and enemy_position.y < 360 and enemy_position.y > -45:
+#		enemy_position = Vector2(rand_range(-160, 670), rand_range(-90, 390))
+#
+#	var enemy_number = round(rand_range(0, enemies.size() - 1))
+#
+#	Global.instance_node(enemies[enemy_number], enemy_position, self)
+#
+#	$Enemy_spawn_timer.wait_time *= 0.95
 
 
 func _on_Difficulty_timer_timeout():
